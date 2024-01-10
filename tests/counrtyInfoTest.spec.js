@@ -2,12 +2,13 @@ import { test, expect } from "@playwright/test";
 
 test('Get facts about Greece', async ({ request }) => {
 
+    let url = 'https://restcountries.com/v3.1/name/';
     let country = 'Greece';
     let numberOfCapitals = 1;
     let capital = 'Athens';
     let commonPolishTranslation = 'Grecja'
 
-    const response = await request.get('https://restcountries.com/v3.1/name/' + country);
+    const response = await request.get(url + country);
     expect(response.status()).toBe(200);
     const responseData = await response.json();
 
